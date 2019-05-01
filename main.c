@@ -49,6 +49,7 @@ int main(int argc, char* argv[])
                 }
 
 		root = parser(tokens);
+		semantics(root);
 		//printPreorder(root, 0);	
 
 		fclose(fp);
@@ -88,6 +89,7 @@ int main(int argc, char* argv[])
 				
 
 			root = parser(tokens);
+			semantics(root);
 			//printPreorder(root, 0);
 
 			fclose(fp);

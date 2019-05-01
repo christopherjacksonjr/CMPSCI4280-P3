@@ -13,6 +13,7 @@ struct Token
 	tokenID id;
 	string instance;
 	int lineNumber;
+	bool operator == (const Token& other ){return this->instance == other.instance;};
 };
 
 #endif

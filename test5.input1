@@ -1,0 +1,7 @@
+Begin
+  IFF [ 1 = < 2 ]
+  Begin
+    INT X1 1
+    Output [ X1 ] : 
+  End :
+End

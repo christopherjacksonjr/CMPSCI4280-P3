@@ -43,11 +43,11 @@ vector<Token> scanner(string buffer)
 			int_tk(buffer, i);
 			i--;
 		}
-		/*if(c == '\\')
+		if(c == '\\')
 		{
 			comment_tk(buffer, i);
 			i--;
-		}*/
+		}
 		if(c == EOF)
 		{
 			Token token;
@@ -473,7 +473,7 @@ void operator_tk(string &buffer, int &i)
 }
 
 //Function that recognizes comments.
-/*void comment_tk(string &buffer, int &i)
+void comment_tk(string &buffer, int &i)
 {
 	char c;
         int start = i;
@@ -484,18 +484,18 @@ void operator_tk(string &buffer, int &i)
         {
                 c = buffer[i];
 
-                if(c == '\n')
+                if(c == '\n' || c == EOF)
                 {
-                        break;
+                        return;
                 }
-                else
+                /*else
                 {
                         word.append(1, c);
-                }
+                }*/
         }
 
 	//Checking that the comment is valid.
-	comment = isComment(word);
+	/*comment = isComment(word);
 	if(comment == true)
 	{
 		Token token;
@@ -509,8 +509,8 @@ void operator_tk(string &buffer, int &i)
 	if(comment == false)
 	{
 		//TODO: if comment comes back false
-	}
-}*/
+	}*/
+}
 
 //Function that checks if identifier is a keyword.
 bool isKeyword(string str)

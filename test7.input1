@@ -1,0 +1,6 @@
+INT X1 1
+INT X2 2
+INT X1 3 \ error X1 redefined
+Begin
+  Output [ 1 ] :
+End
