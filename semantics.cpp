@@ -7,11 +7,13 @@ void semantics(struct Node_t* root)
 {
 	string label;
 	Token token;
-	token = root->token;	
+	//token = root->token;	
 
 	if(root != NULL)
 	{
 		label = determineNodeLabel(root->label);
+		token = root->token;
+
 		if(label == "vars")
 		{
 			//Token token;
@@ -54,10 +56,10 @@ void semantics(struct Node_t* root)
                                 exit(1);
                         }
 		}
-		/*else
+		else
 		{
 			cout << "No match: ";
-		}*/
+		}
 
 		cout << label << " ";
 		cout << root->token.instance << " ";
