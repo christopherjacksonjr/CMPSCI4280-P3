@@ -189,7 +189,7 @@ Node_t* M(vector<Token> tokens)
 	}	
 	else
 	{
-		M_node->right_child = R(tokens);
+		M_node->left_child = R(tokens);
 		return M_node;
 	}
 }
@@ -391,6 +391,8 @@ Node_t* if_tk(vector<Token> tokens)
 		
 		if(token.id == CLOSE_BRACKET_tk)
 		{
+			i++;
+			token = tokens[i];
 			stat(tokens);
 			return iff_node;
 		}
@@ -412,8 +414,11 @@ Node_t* loop(vector<Token> tokens)
 	if(token.id == OPEN_BRACKET_tk)
 	{
 		expr(tokens);
+		i++;
+		token = tokens[i];
+		loop_node->left_child = expr(tokens);
 		RO(tokens);
-		expr(tokens);
+		loop_node->right_child = expr(tokens);
 
 		if(token.id == CLOSE_BRACKET_tk)
 		{
@@ -426,7 +431,7 @@ Node_t* loop(vector<Token> tokens)
 		{
 			error("Error: Expected CLOSE BRACKET token.");
 		}
-		}
+	}
 	else
 	{
 		error("Error: Expected OPEN BRACKET token.");
@@ -481,6 +486,8 @@ Node_t* RO(vector<Token> tokens)
 			token = tokens[i];
 			return RO_node;
 		}
+
+		return RO_node;
 	}
 	else if(token.id == GREATER_tk)
 	{

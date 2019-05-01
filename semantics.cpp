@@ -7,7 +7,6 @@ void semantics(struct Node_t* root)
 {
 	string label;
 	Token token;
-	//token = root->token;	
 
 	if(root != NULL)
 	{
@@ -16,8 +15,6 @@ void semantics(struct Node_t* root)
 
 		if(label == "vars")
 		{
-			//Token token;
-			//token = root->token;
 			cout << "Match: ";
 			if(std::find(variables.begin(), variables.end(), token) != variables.end())
 			{
@@ -34,12 +31,12 @@ void semantics(struct Node_t* root)
 		{
 			if(std::find(variables.begin(), variables.end(), token) != variables.end())
                         {
-                                variables.push_back(token);
                                 cout << "Verified" << endl;
                         }
                         else
                         {
-                                cout << "Error - variable not defined." << endl;
+				cout << token.lineNumber << ": ";
+                                cout << "[R] Error - variable not defined (" + token.instance + ")" << endl;
                                 exit(1);
                         }
 		}
@@ -47,12 +44,12 @@ void semantics(struct Node_t* root)
 		{
 			if(std::find(variables.begin(), variables.end(), token) != variables.end())
                         {
-                                variables.push_back(token);
                                 cout << "Verified" << endl;
                         }
                         else
                         {
-                                cout << "Error - variable not defined." << endl;
+				cout << token.lineNumber << ": ";
+                                cout << "[in] Error - variable not defined." << endl;
                                 exit(1);
                         }
 		}
