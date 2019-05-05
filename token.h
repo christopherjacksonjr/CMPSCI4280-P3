@@ -1,8 +1,8 @@
+#ifndef TOKEN_H
+#define TOKEN_H
 #include<stdio.h>
 #include<iostream>
 #include<vector>
-#ifndef TOKEN_H
-#define TOKEN_H
 
 using namespace std;
 

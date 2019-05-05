@@ -27,7 +27,7 @@ void semantics(struct Node_t* root)
                                 cout << "Added" << endl;
 			}
 		}
-		else if(label == "R")
+		else if(label == "R" && token.id == IDENT_tk)
 		{
 			if(std::find(variables.begin(), variables.end(), token) != variables.end())
                         {
@@ -40,7 +40,7 @@ void semantics(struct Node_t* root)
                                 exit(1);
                         }
 		}
-		else if(label == "in")
+		else if(label == "in" && token.id == IDENT_tk)
 		{
 			if(std::find(variables.begin(), variables.end(), token) != variables.end())
                         {
@@ -63,7 +63,9 @@ void semantics(struct Node_t* root)
 		cout << root->token2.instance << endl;
 
 		semantics(root->left_child);
+		semantics(root->ro_child);
 		semantics(root->right_child);
+		semantics(root->stat_child);
 	}
 }
 
