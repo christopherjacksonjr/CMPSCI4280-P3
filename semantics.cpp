@@ -15,23 +15,24 @@ void semantics(struct Node_t* root)
 
 		if(label == "vars")
 		{
-			cout << "Match: ";
+			//cout << "Match: ";
 			if(std::find(variables.begin(), variables.end(), token) != variables.end())
 			{
-				cout << "Error - variable already defined." << endl;
+				cout << token.lineNumber << ": ";
+				cout << "Error - variable already defined (" + token.instance + ")" << endl;
                                 exit(1);
 			}
 			else
 			{
 				variables.push_back(token);
-                                cout << "Added" << endl;
+                                //cout << "Added" << endl;
 			}
 		}
 		else if(label == "R" && token.id == IDENT_tk)
 		{
 			if(std::find(variables.begin(), variables.end(), token) != variables.end())
                         {
-                                cout << "Verified" << endl;
+                                //cout << "Verified" << endl;
                         }
                         else
                         {
@@ -44,7 +45,7 @@ void semantics(struct Node_t* root)
 		{
 			if(std::find(variables.begin(), variables.end(), token) != variables.end())
                         {
-                                cout << "Verified" << endl;
+                                //cout << "Verified" << endl;
                         }
                         else
                         {
@@ -55,18 +56,22 @@ void semantics(struct Node_t* root)
 		}
 		else
 		{
-			cout << "No match: ";
+			//cout << "No match: ";
 		}
 
-		cout << label << " ";
+		/*cout << label << " ";
 		cout << root->token.instance << " ";
-		cout << root->token2.instance << endl;
+		cout << root->token2.instance << endl;*/
 
 		semantics(root->left_child);
 		semantics(root->ro_child);
 		semantics(root->right_child);
 		semantics(root->stat_child);
 	}
+	/*if(root->token.id == EOF_tk)
+	{
+		cout << "Program finished successfully!" << endl;
+	}*/
 }
 
 string determineNodeLabel(NodeLabel label)

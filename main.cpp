@@ -40,13 +40,13 @@ int main(int argc, char* argv[])
 		//Calling scanner function then parse function.
 		tokens = scanner(buffer);
 
-		int x;
+		/*int x;
                 for (int x = 0; x < tokens.size(); ++x)
                 {
                  	cout << "{" << determineTokenID(tokens[x].id) << ",";
                         cout << " " << tokens[x].instance << ",";
                         cout << " " << tokens[x].lineNumber << "}" << endl;
-                }
+                }*/
 
 		root = parser(tokens);
 		semantics(root);
@@ -79,14 +79,13 @@ int main(int argc, char* argv[])
 			//Calling scanner function then parse function.
 			tokens = scanner(buffer);
 
-			int x;
+			/*int x;
 			for (int x = 0; x < tokens.size(); ++x)
         		{
 				cout << "{" << determineTokenID(tokens[x].id) << ",";
                 		cout << " " << tokens[x].instance << ",";
                 		cout << " " << tokens[x].lineNumber << "}" << endl;
-        		}
-				
+        		}*/	
 
 			root = parser(tokens);
 			semantics(root);

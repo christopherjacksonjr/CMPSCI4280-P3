@@ -211,6 +211,7 @@ Node_t* R(vector<Token> &tokens)
 		}
 		else
 		{
+			cout << token.lineNumber << ": ";
 			error("Error: Expected CLOSE BRACKET token.");
 		}
 	}
@@ -230,6 +231,7 @@ Node_t* R(vector<Token> &tokens)
 	}
 	else
 	{
+		cout << token.lineNumber << ": ";
 		error("Error: Expected OPEN BRACKET, IDENTIFIER, or NUMBER token");
 	}	
 }
@@ -335,6 +337,7 @@ Node_t* in(vector<Token> &tokens)
 				}
 				else
 				{
+					cout << token.lineNumber << ": ";
 					error("Error: Expected CLOSE BRACKET token.");
 				}
 			}
@@ -345,6 +348,7 @@ Node_t* in(vector<Token> &tokens)
 		}
 		else
 		{
+			cout << token.lineNumber << ": ";
 			error("Error: Expected OPEN BRACKET token.");
 		}
 }
@@ -367,11 +371,13 @@ Node_t* out(vector<Token> &tokens)
 		}
 		else
 		{
+			cout << token.lineNumber << ": ";
 			error("Error: Expected CLOSE BRACKET token.");
 		}
 	}
 	else
 	{
+		cout << token.lineNumber << ": ";
 		error("Error: Expected OPEN BRACKET token.");
 	}	
 }
@@ -397,11 +403,13 @@ Node_t* if_tk(vector<Token> &tokens)
 		}
 		else
 		{
+			cout << token.lineNumber << ": ";
 			error("Error: Expected CLOSE BRACKET token.");
 		}
 	}
 	else
 	{
+		cout << token.lineNumber << ": ";
 		error("Error: Expected OPEN BRACKET token.");
 	}
 }
@@ -412,7 +420,7 @@ Node_t* loop(vector<Token> &tokens)
 
 	if(token.id == OPEN_BRACKET_tk)
 	{
-		expr(tokens);
+		//expr(tokens);
 		i++;
 		token = tokens[i];
 		loop_node->left_child = expr(tokens);
@@ -428,11 +436,13 @@ Node_t* loop(vector<Token> &tokens)
 		}
 		else
 		{
+			cout << token.lineNumber;
 			error("Error: Expected CLOSE BRACKET token.");
 		}
 	}
 	else
 	{
+		cout << token.lineNumber;
 		error("Error: Expected OPEN BRACKET token.");
 	}
 }
@@ -460,6 +470,8 @@ Node_t* RO(vector<Token> &tokens)
 
 	if(token.id == LESS_tk)
 	{
+		i++;
+		token = tokens[i];
 		return RO_node;
 	}
 	else if(token.id == EQUAL_tk)
