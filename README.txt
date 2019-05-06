@@ -1,3 +1,3 @@
 Global option.
 
-Still working.
+Completed. Good programs do not output anything as requested. Bad programs output detailed error messages.
