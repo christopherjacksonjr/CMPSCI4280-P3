@@ -40,7 +40,7 @@ void semantics(struct Node_t* root)
                                 exit(1);
                         }
 		}
-		else if(label == "in" && token.id == IDENT_tk)
+		else if(label == "In" && token.id == IDENT_tk)
 		{
 			if(std::find(variables.begin(), variables.end(), token) != variables.end())
                         {
